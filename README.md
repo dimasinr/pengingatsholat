@@ -1,5 +1,8 @@
 # Pengingat Sholat (Jadwal Sholat)
 
+
+![Halaman Utama](screenshoot/halaman_utama.png)
+
 Aplikasi web sederhana untuk menampilkan jadwal sholat per kota/negara, menyimpan hasilnya ke database, serta menyediakan fitur pengingat lokal (notifikasi + bunyi) di browser. Aplikasi ini juga memiliki sistem autentikasi (login/register) dengan dukungan role dan halaman CMS khusus admin untuk mengelola informasi yang tampil di halaman utama.
 
 ## Fitur Utama
@@ -60,45 +63,3 @@ Anda dapat mengubah password admin langsung di database atau dengan membuat akun
    - Klik menu “CMS” di kanan atas (muncul hanya untuk admin).
    - Edit konten pada halaman `cms.php`, klik Simpan.
    - Konten akan tampil di kartu “Informasi” di `index.php`.
-
-## Screenshoot Apikasi ini
-
-Halaman Utama:
-
-![Halaman Utama](screenshoot/halaman_utama.png)
-
-Halaman Login:
-
-![Halaman Login](screenshoot/halaman_login.png)
-
-## Role & Hak Akses
-- `user` (default):
-  - Bisa mencari & melihat jadwal.
-  - Bisa mengaktifkan pengingat di browser (perlu login untuk hak notifikasi terkelola).
-- `admin`:
-  - Semua hak `user`.
-  - Akses ke `cms.php` untuk mengelola konten Informasi.
-
-Mengubah role user menjadi admin (SQL contoh):
-```sql
-UPDATE users SET role = 'admin' WHERE username = 'nama_user';
-```
-
-## Catatan Pengingat (Browser)
-- Notifikasi berjalan di sisi klien (browser). Tab harus terbuka minimal saat penjadwalan dibuat.
-- Browser akan meminta izin notifikasi. Setujui agar notifikasi muncul.
-- Pengingat menggunakan `setTimeout` untuk waktu pada tanggal yang dipilih.
-
-## Troubleshooting
-- Tidak bisa konek DB (PDO):
-  - Pastikan ekstensi PDO MySQL aktif.
-  - Cek `config.php` (host, nama DB, kredensial).
-  - Pastikan DB sudah dibuat (otomatis/`schema.sql`).
-- Tidak ada jadwal/hasil kosong:
-  - Pastikan kota/negara valid.
-  - Coba metode perhitungan lain.
-  - Cek koneksi internet (untuk panggilan API pertama kali).
-- Notifikasi tidak muncul:
-  - Periksa izin notifikasi di browser.
-  - Pastikan sudah login dan opsi pengingat dicentang.
-
