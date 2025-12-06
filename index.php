@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? 'search') === 
         <?php if ($user): ?>
           <span class="badge">Login: <?= htmlspecialchars($user['username']) ?></span>
           <?php if (($user['role'] ?? 'user') === 'admin'): ?>
-            <a class="badge" href="#cms" style="text-decoration:none;">CMS</a>
+            <a class="badge" href="cms.php" style="text-decoration:none;">CMS</a>
           <?php endif; ?>
           <a class="badge" href="logout.php" style="text-decoration:none;">Logout</a>
         <?php else: ?>
@@ -136,21 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? 'search') === 
       <div class="meta" style="white-space:pre-wrap;"><?= nl2br(htmlspecialchars($siteInfo)) ?></div>
     </div>
 
-    <?php if ($user && ($user['role'] ?? 'user') === 'admin'): ?>
-      <div class="card" id="cms">
-        <h3 style="margin:0 0 8px 0;">CMS: Kelola Informasi</h3>
-        <?php if ($success): ?>
-          <div style="color:#bbf7d0; margin-bottom:8px;">✅ <?= htmlspecialchars($success) ?></div>
-        <?php endif; ?>
-        <form method="post">
-          <input type="hidden" name="action" value="update_info">
-          <textarea name="content" class="input" style="min-height:120px;" required><?= htmlspecialchars($siteInfo) ?></textarea>
-          <div style="margin-top:12px; display:flex; gap:12px;">
-            <button type="submit">Simpan</button>
-          </div>
-        </form>
-      </div>
-    <?php endif; ?>
+    
 
     <?php if ($error): ?>
       <div class="card" style="border-color:#ef4444;">
