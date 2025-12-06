@@ -102,11 +102,3 @@ UPDATE users SET role = 'admin' WHERE username = 'nama_user';
   - Periksa izin notifikasi di browser.
   - Pastikan sudah login dan opsi pengingat dicentang.
 
-## Keamanan & Produksi
-- Ganti kredensial admin default sebelum dipublikasikan.
-- Gunakan user DB non-root dengan password kuat.
-- Pertimbangkan HTTPS untuk notifikasi yang lebih andal dan keamanan sesi.
-- Validasi & sanitasi input sudah dasar; sesuaikan kebutuhan produksi (rate limit, CSRF token, dll.).
-
-## Lisensi
-Aplikasi dibuat untuk keperluan pembelajaran/tugas. Silakan modifikasi sesuai kebutuhan Anda.
